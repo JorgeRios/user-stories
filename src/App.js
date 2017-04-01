@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import YourComponent from './YourComponent';
+import Map from 'google-maps-react';
 
 export default class App extends Component {
   render() {
