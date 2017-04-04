@@ -2,16 +2,18 @@ import React, { Component } from 'react';
 import { Button, Glyphicon } from 'react-bootstrap';
 import GoogleMapReact from 'google-map-react';
 import SimpleMarker from 'google-map-react';
-var style = require("css!./marker.css").toString();
-console.log(style)
-
+var data = require('json!./store_directory.json');
+var style = require("css!./marker.css");
+console.log(data);
 var clase = {
  color:'red'
 };
 
-const AnyReactComponent = ({ text }) => <div class={style.component}><Glyphicon glyph="star" />{text} </div>;
+const AnyReactComponent = ({ text }) => <div style={markerStyle} onMouseEnter={toggle} onMouseLeave={toggle}>
+ 
+</div>;
 
-var divStyle = {
+let  divStyle = {
   paddingTop: 20,
   paddingLeft: 20,
   paddingRight: 20,
@@ -20,6 +22,25 @@ var divStyle = {
 };
 
 
+let  markerStyle = {
+  width:'20px',
+  'borderRadius': '6px',
+  border: '2px solid',
+  background:'green',
+  height:'20px',
+  color:'red',
+};
+
+let toggle = ()=>{
+  hover = !hover
+  if (hover){
+    markerStyle.background= 'green'
+  } else {
+    markerStyle.background= 'blue'
+  }
+};
+
+var hover = true;
 
 export default class YourComponent extends Component {
   static defaultProps = {
